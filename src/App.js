@@ -59,7 +59,7 @@ function App() {
 
   useEffect(()=>{
      i18n.changeLanguage(local)
-  },[])
+  },[local,i18n])
 
   useEffect(()=>{
    
@@ -94,7 +94,6 @@ function App() {
     console.log(error);
   })
   return ()=>{
-    console.log("cancling");
     cancelAxios();
   }
  
@@ -149,7 +148,7 @@ function App() {
                                   </Typography>
                                   {/* TODO:TEMP IMAGE */}
                             
-                                   <img src={temp.icon}  />
+                                   <img alt='not found' src={temp.icon}  />
 
                               </div>
                            
@@ -179,7 +178,7 @@ function App() {
                 {/* END CARD */}
                 {/* TRANSLATION CONTENER */}
                 <div 
-                dir={local=="ar" ? "ltr" : "rtl"}
+                dir={local==="ar" ? "ltr" : "rtl"}
                 style={{
                   width:"100%",
                   display:"flex",
